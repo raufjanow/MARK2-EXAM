@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create All Information</title>
+</head>
+<body>
+    <h1>Create All Information</h1>
+
+    <form method="POST" action="{% url 'create_all_info' %}">
+        {% csrf_token %}
+
+        <fieldset>
+            <legend>Header Top Information</legend>
+            <label for="number">Number:</label>
+            <input type="text" name="number" value="{{ header_top_form.number.value|default:'' }}" required>  
+            {% for error in header_top_form.number.errors %}
+                <div style="color: red;">{{ error }}</div>
+            {% endfor %}
+
+            <label for="text">Text:</label>
+            <input type="text" name="text" value="{{ header_top_form.text.value|default:'' }}" required> 
+            {% for error in header_top_form.text.errors %}
+                <div style="color: red;">{{ error }}</div>
+            {% endfor %}
+
+            <label for="joined_on">Joined On:</label>
+            <input type="date" name="joined_on" value="{{ header_top_form.joined_on.value|default:'' }}" required>  
+            {% for error in header_top_form.joined_on.errors %}
+                <div style="color: red;">{{ error }}</div>
+            {% endfor %}
+        </fieldset>
+
+        <fieldset>
+            <legend>Header Middle Information</legend>
+            <label for="title">Title:</label>
+            <input type="text" name="title" value="{{ header_middle_form.title.value|default:'' }}" required> 
+            {% for error in header_middle_form.title.errors %}
+                <div style="color: red;">{{ error }}</div>
+            {% endfor %}
+        </fieldset>
+
+        <fieldset>
+            <legend>Footer Information</legend>
+            <label for="text2">Text 2:</label>
+            <input type="text" name="text2" value="{{ footer_form.text2.value|default:'' }}" required>  
+            {% for error in footer_form.text2.errors %}
+                <div style="color: red;">{{ error }}</div>
+            {% endfor %}
+
+            <label for="description">Description:</label>
+            <textarea name="description" required>{{ footer_form.description.value|default:'' }}</textarea> 
+            {% for error in footer_form.description.errors %}
+                <div style="color: red;">{{ error }}</div>
+            {% endfor %}
+        </fieldset>
+
+        <button type="submit">Add All Information</button>
+        <a href="{% url 'all_info' %}">Cancel</a>
+        <a href="{% url 'index'%}">Back To Main Menu</a>
+    </form>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <title>PORTEN-Exam-2</title>
+</head>
+<body>
+    <div>
+        <span>+8(812) 123-45-67 | Работаем 7 дней в неделю | 9:00-20:00</span>
+    </div>
+    <div>
+        <h2>PORTEN</h2>
+        <nav>
+            <a href="#">ПОНРАВИЛОСЬ</a>
+            <a href="{% url 'all_info'%}">ЛИЧНЫЙ КАБИНЕТ</a>
+            <a href="#">НАСТРОЙКИ</a>
+        </nav>
+    </div>
+
+    <div>
+        <h1>PORTEN САНКТ-ПЕТЕРБУРГ</h1>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+            Purus interdum purus, est tortor pulvinar ut in. 
+            Fringilla a diam enim sed justo, sed iaculis sagittis.
+        </p>
+    </div>
+
+</body>
+</html>

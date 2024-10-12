@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'actions.css' %}">
+    <title>Delete Confirmation</title>
+</head>
+<body>
+    <h1>Delete Confirmation</h1>
+    <p>Are you sure you want to delete this information?</p>
+
+    <h2>Information to be Deleted:</h2>
+    <table border="1">
+        <tr>
+            <th>Number</th>
+            <th>Text</th>
+            <th>Joined On</th>
+            <th>Title</th>
+            <th>Text 2</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>{{ header_top.number }}</td>
+            <td>{{ header_top.text }}</td>
+            <td>{{ header_top.joined_on }}</td>
+            <td>{{ header_middle.title }}</td>
+            <td>{{ footer.text2 }}</td>
+            <td>{{ footer.description }}</td>
+        </tr>
+    </table>
+
+    <form method="POST" action="{% url 'delete_info' header_top.id %}">
+        {% csrf_token %}
+        <button type="submit">Confirm Delete</button>
+    </form>
+    <a href="{% url 'all_info' %}">Cancel</a>
+</body>
+</html>

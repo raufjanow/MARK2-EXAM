@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'actions.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit All Information</title>
+</head>
+<body>
+    <h1>Edit All Information</h1>
+
+    <form method="POST" action="{% url 'edit_all_info' header_top_form.instance.id %}">
+        {% csrf_token %}
+        
+        <fieldset>
+            <legend>Header Top Information</legend>
+            <label for="number">Number:</label>
+            {{ header_top_form.number }}  
+            {% for error in header_top_form.number.errors %}
+                <div style="color: red;">{{ error }}</div>
+            {% endfor %}
+
+            <label for="text">Text:</label>
+            {{ header_top_form.text }} 
+            {% for error in header_top_form.text.errors %}
+                <div style="color: red;">{{ error }}</div>
+            {% endfor %}
+
+            <label for="joined_on">Joined On:</label>
+            {{ header_top_form.joined_on }}  
+            {% for error in header_top_form.joined_on.errors %}
+                <div style="color: red;">{{ error }}</div>
+            {% endfor %}
+        </fieldset>
+
+        <fieldset>
+            <legend>Header Middle Information</legend>
+            <label for="title">Title:</label>
+            {{ header_middle_form.title }} 
+            {% for error in header_middle_form.title.errors %}
+                <div style="color: red;">{{ error }}</div>
+            {% endfor %}
+        </fieldset>
+
+        <fieldset>
+            <legend>header_bot Information</legend>
+            <label for="text2">Text 2:</label>
+            {{ header_bot_form.text2 }}  
+            {% for error in header_bot_form.text2.errors %}
+                <div style="color: red;">{{ error }}</div>
+            {% endfor %}
+
+            <label for="description">Description:</label>
+            {{ header_bot_form.description }} 
+            {% for error in header_bot_form.description.errors %}
+                <div style="color: red;">{{ error }}</div>
+            {% endfor %}
+        </fieldset>
+
+        <button type="submit">Save All Changes</button>
+        <a href="{% url 'all_info' %}">Cancel</a>
+    </form>
+</body>
+</html>
+

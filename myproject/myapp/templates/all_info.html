@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Information</title>
+</head>
+<body>
+    <h1>All Information</h1>
+
+    <h2>Combined Information</h2>
+    <table border="1">
+        <tr>
+            <th>Number</th>
+            <th>Text</th>
+            <th>Joined On</th>
+            <th>Title</th>
+            <th>Text 2</th>
+            <th>Description</th>
+            <th>Actions</th>
+        </tr>
+
+        {% for header_top, header_middle, footer in header_data %}
+        <tr>
+            <td>{{ header_top.number }}</td>
+            <td>{{ header_top.text }}</td>
+            <td>{{ header_top.joined_on }}</td>
+            <td>{{ header_middle.title }}</td>
+            <td>{{ footer.text2 }}</td>
+            <td>{{ footer.description }}</td>
+            <td>
+                <a href="{% url 'edit_all_info' header_top.id %}">Edit</a> 
+                <a href="{% url 'delete_info' header_top.id %}">Delete</a> 
+       
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <a href="{% url 'create_all_info' %}">Add New Information</a>
+    <a href="{% url 'index' %}">Back To Main Menu</a>
+</body>
+</html>
