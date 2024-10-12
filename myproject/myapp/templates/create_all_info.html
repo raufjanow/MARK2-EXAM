@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'create_all.css' %}">
     <title>Create All Information</title>
 </head>
 <body>
@@ -58,7 +60,7 @@
 
         <button type="submit">Add All Information</button>
         <a href="{% url 'all_info' %}">Cancel</a>
-        <a href="{% url 'index'%}">Back To Main Menu</a>
+        <a href="{% url 'main'%}">Back To Main Menu</a>
     </form>
 </body>
 </html>

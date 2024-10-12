@@ -5,6 +5,7 @@
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'actions.css' %}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Edit All Information</title>
 </head>
 <body>
@@ -44,16 +45,16 @@
         </fieldset>
 
         <fieldset>
-            <legend>header_bot Information</legend>
+            <legend>Footer Information</legend>
             <label for="text2">Text 2:</label>
-            {{ header_bot_form.text2 }}  
-            {% for error in header_bot_form.text2.errors %}
+            {{ footer_form.text2 }}  
+            {% for error in footer_form.text2.errors %}
                 <div style="color: red;">{{ error }}</div>
             {% endfor %}
 
             <label for="description">Description:</label>
-            {{ header_bot_form.description }} 
-            {% for error in header_bot_form.description.errors %}
+            {{ footer_form.description }} 
+            {% for error in footer_form.description.errors %}
                 <div style="color: red;">{{ error }}</div>
             {% endfor %}
         </fieldset>
@@ -63,4 +64,3 @@
     </form>
 </body>
 </html>
-

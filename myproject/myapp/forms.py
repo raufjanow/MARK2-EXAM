@@ -1,9 +1,9 @@
 from django import forms
-from .models import header_top, header_middle, header_bot
+from .models import Header_top, Header_middle, Footer
 
 class Header_topForm(forms.ModelForm):
     class Meta:
-        model = header_top
+        model = Header_top
         fields = ['number', 'text', 'joined_on']
         widgets = {
             'joined_on': forms.DateInput(attrs={
@@ -14,11 +14,10 @@ class Header_topForm(forms.ModelForm):
 
 class Header_middleForm(forms.ModelForm):
     class Meta:
-        model = header_middle
+        model = Header_middle
         fields = ['title']
 
-class header_botForm(forms.ModelForm):
+class FooterForm(forms.ModelForm):
     class Meta:
-        model = header_bot
+        model = Footer
         fields = ['text2', 'description']
-
